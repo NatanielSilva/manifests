@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource
+	accessToUnderlyingConnectionAllowed="false"
+	driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+	logAbandoned="true"
+	name="jdbc/Lyceum"
+	password="@n4t4n13l"
+	profile="DEV"
+	removeAbandoned="false"
+	removeAbandonedTimeout="60"
+	schema=""
+	type="javax.sql.DataSource"
+	url="jdbc:sqlserver://10.225.6.233;DatabaseName=Unijorge_Lyceum;SelectMethod=cursor"
+	username="nataniel.silva"
+	/>
+	<Profile value="DEV"/>
+</Context>
+

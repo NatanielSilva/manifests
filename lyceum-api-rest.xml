@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resources cachingAllowed="false" className="org.apache.catalina.webresources.StandardRoot">
+		<!-- JARs com APIs custom -->
+		<!--
+		<PreResources
+			className="org.apache.catalina.webresources.DirResourceSet"
+			base="/etc/techne/lyceum"
+			webAppMount="/WEB-INF/lib" />
+		-->
+		
+		<!-- Pasta de resources externo a aplicação -->
+		<!-- 
+		<PostResources
+			className="org.apache.catalina.webresources.DirResourceSet"
+	      	base="/etc/techne/lyceum/relatorios"
+	      	webAppMount="/" />
+		-->
+	</Resources>
+	
+	<!-- Nome do DataSource utilizado pelo Lyceum -->
+	<Parameter name="lyceum.datasource.jndiName" value="java:comp/env/jdbc/Lyceum" />
+
+	<Environment name="lyceumQueryLimit" value="500000" type="java.lang.String" override="false" />
+
+	<!--
+	  * Usuários/Senha para acesso a API
+	  *
+	  * Roles: As roles são o que definem o nível de acesso de cada usuário na API, abaixo segue um breve
+	  * resumo das roles que podem ser usadas e combinadas em cada usuário:
+	  *
+	  * USER: Acesso total de leitura e escrita em toda API;
+	  * READER: Acesso total somente de leitura em toda API;
+	  *
+	  * AVALIACAO: Acesso somente ao grupo de APIs avaliação institucional com permissão de escrita e leitura;
+	  * COMUM: Acesso somente ao grupo de APIs comum com permissão de escrita e leitura;
+	  * CUSTOM: Acesso somente ao grupo de APIs custom com permissão de escrita e leitura;
+	  * DIPLOMA: Acesso somente ao grupo de APIs diploma digital com permissão de escrita e leitura;
+	  * FILA: Acesso somente ao grupo de APIs filaintegração com permissão de escrita e leitura;
+	  * FINANCEIRO: Acesso somente ao grupo de APIs financeiro com permissão de escrita e leitura;
+	  * INTEGRACAO: Acesso somente ao grupo de APIs integrações e integraçãocrmdynamics com permissão de escrita e leitura;
+	  * MATRICULA: Acesso somente ao grupo de APIs matrícula com permissão de escrita e leitura;
+	  * NEGOCIACAO: Acesso somente ao grupo de APIs negociação terceirizada com permissão de escrita e leitura;
+	  * GED: Acesso somente ao grupo de APIs pedido ged com permissão de escrita e leitura;
+	  * PESSOA: Acesso somente ao grupo de APIs pessoas com permissão de escrita e leitura;
+	  * PIX: Acesso somente ao grupo de APIs pix com permissão de escrita e leitura;
+	  * PROCESSO: Acesso somente ao grupo de APIs processo seletivo com permissão de escrita e leitura;
+	  * PUSH: Acesso somente ao grupo de APIs push notification app com permissão de escrita e leitura;
+	  * RELATORIOS: Acesso somente ao grupo de APIs relatórios com permissão de escrita e leitura;
+	  * SECRETARIA: Acesso somente ao grupo de APIs secretaria com permissão de escrita e leitura;
+	 -->
+	
+	<Parameter name="lyceum.aol.api.username" value="${secure:r0Bq1O2uJSY=}" />
+	<Parameter name="lyceum.aol.api.password" value="${secure:sDLkbzna7ucl9Ps++YxtQA==}" />
+	<Parameter name="lyceum.aol.api.roles" value="USER" />
+
+	<Parameter name="lyceum.aol.api.swagger.username" value="${secure:P8t8BNvNeLE=}" />
+	<Parameter name="lyceum.aol.api.swagger.password" value="${secure:P8t8BNvNeLE=}" />
+	<Parameter name="lyceum.aol.api.swagger.roles" value="READER" />
+
+	<Parameter name="lyceum.aol.api.user1.username" value="${secure:YndIljmkesOxaN2zDpI29A==}" />
+        <Parameter name="lyceum.aol.api.user1.password" value="${secure:Q3TJgRh3dI0GA0D481Okjg==}" />
+        <Parameter name="lyceum.aol.api.user1.roles" value="USER" />
+	
+        <Parameter name="lyceum.aol.api.user2.username" value="${secure:GBUS1Sh6PD6i8BqBjEygzJ9DlFuxbZqI}" />
+        <Parameter name="lyceum.aol.api.user2.password" value="${secure:jLRrEdnoLN4CmyTg55eXcw==}" />
+        <Parameter name="lyceum.aol.api.user2.roles" value="READER, AVALIACAO, COMUM, CUSTOM, FILA, FINANCEIRO, INTEGRACAO, MATRICULA, NEGOCIACAO, PESSOA, PROCESSO, PUSH, RELATORIOS, SECRETARIA, GED, DIPLOMA, PIX" />
+
+        <Parameter name="lyceum.aol.api.user3.username" value="analistadiegotechne" />
+        <Parameter name="lyceum.aol.api.user3.password" value="ZKKVD4vPb9MW" />
+        <Parameter name="lyceum.aol.api.user3.roles" value="USER" />
+
+
+	<!-- 
+	  * Podemos configurar no total de 50 usuários. Abaixo segue alguns exemplos de usuários com acesso a grupos específicos e todas as APIs,
+ 	  * isso pode ser obervado através das roles. Podemos criar usuários limitando somente a uma parte da API alternando as roles,
+ 	  * ou combinando roles para acesso a mais de um grupo, lembrando que essas roles tem acesso de leitura e escrita.
+ 	  *
+ 	  * Para criar mais usuários basta alterar o prefixo lyceum.aol.api.userX para lyceum.aol.api.userX e definir o username, password
+ 	  * e roles de acesso. Esse procedimento pode ser realizado até o número 50 totalizando a criação de 50 usuários.
+	 -->
+	<!-- Exemplos -->
+	<!--
+	<Parameter name="lyceum.aol.api.user1.username" value="useravaliacao" />
+	<Parameter name="lyceum.aol.api.user1.password" value="avaliacao@123" />
+	<Parameter name="lyceum.aol.api.user1.roles" value="AVALIACAO" />
+	
+	<Parameter name="lyceum.aol.api.user2.username" value="usercomum" />
+	<Parameter name="lyceum.aol.api.user2.password" value="comum@123" />
+	<Parameter name="lyceum.aol.api.user2.roles" value="COMUM" />
+	
+	<Parameter name="lyceum.aol.api.user3.username" value="usercustom" />
+	<Parameter name="lyceum.aol.api.user3.password" value="custom@123" />
+	<Parameter name="lyceum.aol.api.user3.roles" value="CUSTOM" />
+	
+	<Parameter name="lyceum.aol.api.user4.username" value="userfila" />
+	<Parameter name="lyceum.aol.api.user4.password" value="fila@123" />
+	<Parameter name="lyceum.aol.api.user4.roles" value="FILA" />
+	
+	<Parameter name="lyceum.aol.api.user5.username" value="userfinanceiro" />
+	<Parameter name="lyceum.aol.api.user5.password" value="financeiro@123" />
+	<Parameter name="lyceum.aol.api.user5.roles" value="FINANCEIRO" />
+	
+	<Parameter name="lyceum.aol.api.user6.username" value="userintegracao" />
+	<Parameter name="lyceum.aol.api.user6.password" value="integracao@123" />
+	<Parameter name="lyceum.aol.api.user6.roles" value="INTEGRACAO" />
+	
+	<Parameter name="lyceum.aol.api.user7.username" value="usermatricula" />
+	<Parameter name="lyceum.aol.api.user7.password" value="matricula@123" />
+	<Parameter name="lyceum.aol.api.user7.roles" value="MATRICULA" />
+	
+	<Parameter name="lyceum.aol.api.user8.username" value="usernegociacao" />
+	<Parameter name="lyceum.aol.api.user8.password" value="negociacao@123" />
+	<Parameter name="lyceum.aol.api.user8.roles" value="NEGOCIACAO" />
+	
+	<Parameter name="lyceum.aol.api.user9.username" value="userpessoa" />
+	<Parameter name="lyceum.aol.api.user9.password" value="pessoa@123" />
+	<Parameter name="lyceum.aol.api.user9.roles" value="PESSOA" />
+	
+	<Parameter name="lyceum.aol.api.user10.username" value="userprocesso" />
+	<Parameter name="lyceum.aol.api.user10.password" value="processo@123" />
+	<Parameter name="lyceum.aol.api.user10.roles" value="PROCESSO" />
+	
+	<Parameter name="lyceum.aol.api.user11.username" value="userpush" />
+	<Parameter name="lyceum.aol.api.user11.password" value="push@123" />
+	<Parameter name="lyceum.aol.api.user11.roles" value="PUSH" />
+	
+	<Parameter name="lyceum.aol.api.user12.username" value="userrelatorios" />
+	<Parameter name="lyceum.aol.api.user12.password" value="relatorio@123" />
+	<Parameter name="lyceum.aol.api.user12.roles" value="RELATORIOS" />
+	
+	<Parameter name="lyceum.aol.api.user13.username" value="usersecretaria" />
+	<Parameter name="lyceum.aol.api.user13.password" value="secretaria@123" />
+	<Parameter name="lyceum.aol.api.user13.roles" value="SECRETARIA" />
+	
+	<Parameter name="lyceum.aol.api.user14.username" value="userged" />
+	<Parameter name="lyceum.aol.api.user14.password" value="ged@123" />
+	<Parameter name="lyceum.aol.api.user14.roles" value="GED" />
+	
+	<Parameter name="lyceum.aol.api.user15.username" value="userdiploma" />
+	<Parameter name="lyceum.aol.api.user15.password" value="diploma@123" />
+	<Parameter name="lyceum.aol.api.user15.roles" value="DIPLOMA" />
+	
+	<Parameter name="lyceum.aol.api.user16.username" value="userpix" />
+	<Parameter name="lyceum.aol.api.user16.password" value="pix@123" />
+	<Parameter name="lyceum.aol.api.user16.roles" value="PIX" />
+	
+	<Parameter name="lyceum.aol.api.user17.username" value="user17" />
+	<Parameter name="lyceum.aol.api.user17.password" value="user@123" />
+	<Parameter name="lyceum.aol.api.user17.roles" value="AVALIACAO, COMUM, CUSTOM, FILA, FINANCEIRO, INTEGRACAO, MATRICULA, NEGOCIACAO, PESSOA, PROCESSO, PUSH, RELATORIOS, SECRETARIA, GED, DIPLOMA, PIX" />
+	-->
+	
+	<!-- 
+	  * Endpoints de monitoramento da aplicação. Todos podem ser acessados utilizando /monitor/*
+ 	  * Por padrão o produto deixa habilitado os endpoints:
+ 	  *
+ 	  * /monitor/info: Retorna informações configuradas da aplicação, exemplo: versão da aplicação, versão do java;
+ 	  * /monitor/health: Retorna o status da aplicação. Para retornar o status do banco desabilitar na prop management.security.enabled = false;
+ 	  *
+ 	  * Para habilitar os demais endpoints configure abaixo de acordo com a necessidade.
+	-->
+	<!-- Se desabilitado (false) exibe informações de disco e db no endpoint /monitor/health -->
+	<Parameter name="management.security.enabled" value="true" />
+		
+	<!-- dump: Gera e retorna o arquivo de dump da aplicação -->
+	<Parameter name="endpoints.dump.enabled" value="false" />
+	
+	<!-- heapdump: Gera e retorna o arquivo de heapdump da aplicação -->
+	<Parameter name="endpoints.heapdump.enabled" value="false" />
+	
+	<!-- metrics: Retorna métricas da aplicação como: quantidade de memória, número de Threads, número de classes, uptime, entre outros -->
+	<Parameter name="endpoints.metrics.enabled" value="false" />
+	
+	<!-- configprops: Retorna informações sobre as configurações da aplicação -->
+	<Parameter name="endpoints.configprops.enabled" value="false" />
+	
+	<!-- env: Retorna os dados do ambiente, exemplo informações da JVM, sistema operacional, dados de acesso, entre outros -->
+	<Parameter name="endpoints.env.enabled" value="false" />
+	
+	<!-- autoconfig: Retorna informações sobre as auto configurações -->
+	<Parameter name="endpoints.autoconfig.enabled" value="false" />
+	
+	<!-- mappings: Retorna informações dos endpoints disponibilizados na aplicação -->
+	<Parameter name="endpoints.mappings.enabled" value="false" />
+	
+	<!-- trace: Retorna toda rota dos últimos endpoints -->
+	<Parameter name="endpoints.trace.enabled" value="false" />
+	
+	<!-- beans: Retorna informações sobre os beans da aplicação -->
+	<Parameter name="endpoints.beans.enabled" value="false" />
+	
+	 
+	<!-- Endpoints sem autenticação (ex.: /pessoas/lista_tipo_servico,/financeiro/**) -->
+	<Parameter name="lyceum.aol.api.no-auth" value="" />
+	
+	<!-- Configurações do Envio de E-mail -->
+	<Parameter name="lyceum.aonline.tiporecuperarsenha" value="reset" />
+	<Parameter name="lyceum.aonline.validadeRecuperarSenha" value="24" />
+	<Parameter name="lyceum.aonline.remetenteRecuperarSenha" value="Reset de senha" />
+	<Parameter name="lyceum.aonline.emailRecuperarSenha" value="naoresponda@uva.br" />
+	<Parameter name="lyceum.aonline.endRecuperarSenha" value="#/resetsenha" />
+	<Parameter name="lyceum.aonline.alunoresponsivo" value="true" />
+	<Parameter name="spring.http.multipart.max-file-size" value="30MB" />
+	<Parameter name="spring.http.multipart.max-request-size" value="30MB" />	
+	
+	<!-- Configurações ReportServer -->
+	<Parameter name="cronos.report.sqlserver.server" value="http://10.225.6.233/ReportServer" />
+	<Parameter name="cronos.report.sqlserver.url" value="http://10.225.6.233/ReportServer/ReportExecution2005.asmx" />
+	<Parameter name="cronos.report.sqlserver.userId" value="${secure:vhPCiNpqGLJYfauKcII6FNOeXBms7/ba}" />
+	<Parameter name="cronos.report.sqlserver.password" value="${secure:eajK3ylRYdi7ndnjGOxq9Q==}" />
+
+
+	<!-- Configuração do DataSource do banco de dados -->
+	<JarScanner scanAllDirectories="true"/>
+	<Resource name="jdbc/Lyceum"
+			  type="javax.sql.DataSource"
+			  driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+			  url="jdbc:sqlserver://10.225.6.233;DatabaseName=Unijorge_Lyceum;SelectMethod=cursor"
+			  username="nataniel.silva"
+			  password="@n4t4n13l"
+			  maxActive="300"
+			  maxIdle="10"
+			  maxWait="10000"
+			  removeAbandoned="true"
+			  removeAbandonedTimeout="60"
+			  logAbandoned="true"
+			  validationQuery="select 1"
+			  testWhileIdle="true"
+			  testOnBorrow="false"
+			  timeBetweenEvictionRunsMillis="300000"
+			  minEvictableIdleTimeMillis="60000"
+			  singleton="false"/>
+
+<!--
+	<Parameter name="lyceum.parameter.queryLimit" value="1000000" />
+-->
+
+<Parameter name="queryLimit" value="1000000" />
+<Parameter name="lyceum.parameter.queryLimit" value="1000000"/>
+
+</Context>
