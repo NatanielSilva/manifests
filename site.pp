@@ -1,11 +1,4 @@
 node default {
-  file { '/opt/techne/lyceum/tomcat/conf/Catalina/localhost':
-    ensure => directory,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0755',
-  }
-
   file { '/opt/techne/lyceum/tomcat/conf/Catalina/localhost/consulta-documentos.xml':
     ensure => file,
     source => 'puppet:///modules/confapps/consulta-documentos.xml',
