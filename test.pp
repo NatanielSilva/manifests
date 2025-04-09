@@ -1,6 +1,6 @@
 file { '/tmp/puppet_test.txt':
   ensure  => 'file',
-  content => "SUCESSO-PUPPET-2025\n",
+  content => "SUCESSO-PUPPET\n",
   mode    => '0644',
   owner   => 'root',
   group   => 'root',
