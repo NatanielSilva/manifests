@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><Context>
+    <Resource accessToUnderlyingConnectionAllowed="true" driverClassName="org.h2.Driver" logAbandoned="true" name="jdbc/main" password="root" profile="DEV" removeAbandoned="false" removeAbandonedTimeout="60" type="javax.sql.DataSource" url="jdbc:h2:file:~/9f25ce6f85654914808e4f684066a510;ALIAS_COLUMN_NAME=true;AUTO_SERVER=TRUE" username="root"/>
+    <Profile value="DEV"/>
+    <Parameter name="url_base_api" value="https://homolog-uva-unijorge.lyceum.com.br/lyceum-api-rest"/>
+    <Parameter name="url_auth_username" value="${secure:r0Bq1O2uJSY=}"/>
+    <Parameter name="url_auth_password" value="${secure:sDLkbzna7ucl9Ps++YxtQA==}"/>
+    <Parameter name="time_cache_css" value="300000"/>
+	<Parameter name="ambiente" value="PROD"/>
+</Context>
+
+

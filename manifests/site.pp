@@ -16,6 +16,3 @@ node default {
     mode   => '0644',
   }
 
-  # Repita para os outros 3 arquivos (dashboard.xml, diploma-digital.xml, webservices.xml)
-  # ...
-}
