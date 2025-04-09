@@ -1,6 +1,6 @@
 file { '/tmp/puppet_test.txt':
   ensure  => 'file',
-  content => "PORRAAAA\n",
+  content => "JESUS-SALVA\n",
   mode    => '0644',
   owner   => 'root',
   group   => 'root',
