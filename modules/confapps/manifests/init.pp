@@ -9,13 +9,13 @@ class confapps {
 
   $destino = '/opt/techne/lyceum/tomcat/conf/Catalina/localhost'
 
-  file { $arquivos:
-    ensure  => file,
-    path    => "${destino}/${name}",
-    source  => "puppet:///modules/confapps/${name}",
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
+  $arquivos.each |String $arquivo| {
+    file { "${destino}/${arquivo}":
+      ensure  => file,
+      source  => "puppet:///modules/confapps/${arquivo}",
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+    }
   }
 }
-
