@@ -4,7 +4,7 @@
   <Resource name="jdbc/Lyceum"
             type="javax.sql.DataSource"
             driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-            url="jdbc:sqlserver://10.225.6.233;DatabaseName=Unijorge_Lyceum;SelectMethod=cursor"
+            url="jdbc:sqlserver://10.225.6.200;DatabaseName=Unijorge_Lyceum;SelectMethod=cursor"
             username="nataniel.silva"
             password="@n4t4n13l" 
             accessToUnderlyingConnectionAllowed="true"
